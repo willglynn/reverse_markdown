@@ -25,6 +25,8 @@ module ReverseMarkdown
         ReverseMarkdown::Converters::Bypass.new
       when :raise
         raise UnknownTagError, "unknown tag: #{tag_name}"
+      when :escape
+        ReverseMarkdown::Converters::Escape.new
       else
         raise InvalidConfigurationError, "unknown value #{ReverseMarkdown.config.unknown_tags.inspect} for ReverseMarkdown.config.unknown_tags"
       end
